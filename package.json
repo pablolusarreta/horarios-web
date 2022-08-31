@@ -1,0 +1,22 @@
+{
+  "name": "horarios-web",
+  "version": "1.0.0",
+  "description": "Sitio web para gestión de horarios trabajados",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "node-pre-gyp": "^0.15.0",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

@@ -1,0 +1,56 @@
+body {
+	background-color: #fff;
+	color: #000;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	cursor: default;
+	zoom: 0.8;
+}
+
+
+
+table, input {
+	font-size: 11px;
+}
+
+table.horario {
+	width: 150px;
+}
+table.tabla_anio>tbody {
+	box-shadow: none;
+}
+table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
+	border: 0px solid #fff;
+}
+
+table.horario>tbody>tr>td>img {
+	visibility: hidden;
+}
+
+tr.domingo, tr.sabado, tr.festivo, tr.vacaciones, tr.otros, tr.ano_anterior {
+	background-color: transparent;
+}
+
+td {
+	background-color: #fff;
+}
+
+td>span.etiqueta {
+	display: inline;
+	white-space: pre;
+}
+
+td.nota {
+	min-width: 400px;
+	white-space: normal;
+	font-size: 9px;
+}
+
+#control, #cargando, td>select {
+	display: none;
+}
+
+#salida {
+	top: 10px;
+}

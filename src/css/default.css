@@ -1,0 +1,432 @@
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #333;
+	color: #000;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	cursor: default;
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, body, html, p, blockquote, input, img {
+	margin: 0px;
+	padding: 0px;
+}
+
+select {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	border: 0px;
+	font-size: 18px;
+	color: #333;
+	background-color: transparent;
+}
+
+table {
+	margin: 0px auto;
+	width: 95%;
+	max-width: 1200px;
+	border-collapse: collapse;
+	background-color: transparent;
+}
+
+table.tabla_anio {
+	border: 6px solid #999;
+}
+
+table.tabla_anio>tbody {
+	box-shadow: 4px 4px 8px#000;
+}
+
+table>caption {
+	font-size: 18px;
+	text-align: left;
+}
+
+td, th {
+	padding: 1px 10px;
+	vertical-align: top;
+	white-space: nowrap;
+	max-width: 110px;
+	width: 10px;
+	background-color: #fff9f0;
+}
+
+td.selector {
+	max-width: 130px;
+	text-align: right;
+}
+
+th {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	background-color: #999;
+	color: #fff;
+}
+
+/*TD*/
+
+.laboral {
+	background-color: #fff;
+}
+
+.domingo {
+	background-color: #ccf;
+}
+
+.sabado {
+	background-color: #ccf;
+}
+
+.festivo {
+	background-color: #fc9;
+}
+
+.vacaciones {
+	background-color: #ff9;
+}
+
+.otros {
+	background-color: #9c9;
+}
+
+.ano_anterior {
+	background-color: #c99;
+}
+
+.nota {
+	max-width: 350px;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: height 0.5s;
+}
+
+/*TR
+
+tr.domingo {
+	background-color: #ccf;
+}
+
+tr.sabado {
+	background-color: #ccf;
+}
+
+tr.festivo {
+	background-color: #fda;
+}
+
+tr.vacaciones {
+	background-color: #ffb;
+}
+
+tr.otros {
+	background-color: #beb;
+}
+
+tr.ano_anterior {
+	background-color: #ebb;
+}
+*/
+
+td {
+	font-family: "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	max-width: 200px;
+}
+
+td.nota {
+	font-size: 12px;
+}
+
+td>select {
+	font-size: 11px;
+	color: #000;
+}
+
+td>span.etiqueta {
+	display: none;
+	color: #000;
+	font-weight: bolder;
+}
+
+table.horario {
+	border-width: 0px;
+}
+
+table.horario>tbody>tr>td {
+	margin: 0px;
+	padding: 0px;
+}
+
+table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
+	font-family: "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	text-align: center;
+	width: 40px;
+	border: none;
+	background-color: transparent;
+	cursor: default;
+}
+
+table.horario>tbody>tr>td>img {
+	margin: 0px 4px 0px 6px;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+table.horario>tbody>tr>td>img:hover {
+	opacity: 1;
+}
+
+#control {
+	position: fixed;
+	width: 100%;
+	height: 80px;
+	font-size: 24px;
+	background-color: #222;
+	box-shadow: 0px 0px 20px #000;
+}
+
+#selectores {
+	position: fixed;
+	top: 46px;
+	right: 0;
+}
+
+#selectores>select {
+	margin-right: 40px;
+	margin-top: 10px;
+	padding: 0 20px;
+	background-color: #999;
+	color: #fff;
+	font-size: 16px;
+}
+
+#navegador {
+	position: fixed;
+	top: 22px;
+	left: 20px;
+	color: #ccc;
+	font-size: 19px;
+}
+
+#navegador>span {
+	display: inline-block;
+	position: relative;
+	font-weight: 600;
+	background-color: transparent;
+	color: #ccc;
+	margin-top: 15px;
+	margin-right: 4px;
+	padding: 0 10px 0px 10px;
+	transition: color 0.5s;
+}
+
+#navegador>span:hover, #navegador>span.activo {
+	color: #fff;
+}
+
+#salida {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+}
+
+#salida>div.opcion {
+	margin: 20px auto;
+	padding: 20px;
+	width: 400px;
+	height: 150px;
+	border: 4px solid #ccc;
+	border-radius: 10px 10px;
+	background-color: #fff;
+	box-shadow: 4px 4px 8px #000;
+	overflow: hidden;
+}
+
+#salida>div.opcion>span {
+	display: block;
+	font-size: 18px;
+	float: right;
+	text-align: right;
+}
+#salida>div.opcion>img{
+	position: relative;
+}
+#salida>div.opcion>span>button, #selectores>button, #autentificacion>div>input[type=button], #graficos>a {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #999;
+	color: #fff;
+	border: none;
+	width: 130px;
+	padding: 4px 6px;
+	margin: 0 0 0 10px;
+	transition: background-color 0.5s;
+}
+
+#salida>div.opcion>span>button:hover, #selectores>button:hover, #autentificacion>div>input[type=button]:hover, #graficos>a:hover {
+	background-color: #666;
+}
+
+#salida>div.nota {
+	width: 90%;
+	max-width: 1200px;
+	text-align: left;
+	font-size: 11px;
+	color: #666;
+	margin: auto;
+	margin-bottom: 100px;
+}
+
+#normas {
+	margin: 0 auto;
+	max-width: 600px;
+	border: 4px solid #ccc;
+	background-color: #fff;
+	box-shadow: 4px 4px 8px #000;
+}
+
+#normas>caption {
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+#normas>tbody>tr>td {
+	padding: 10px 20px;
+}
+
+#normas>tbody>tr>td>input {
+	width: 70px;
+	height: 18px;
+	text-align: right;
+	border: 1px solid #ccc;
+}
+
+#normas>tbody>tr>td>button {
+	margin: 0px 4px;
+	width: 19px;
+	height: 19px;
+	font-size: 11px;
+	color: #f00;
+	font-weight: bolder;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+#normas>tbody>tr>td>button:hover {
+	opacity: 1;
+}
+
+#total_mes>td>span {
+	padding: 0px 20px;
+}
+
+table.anual {
+	width: 970px;
+	border-color: #999;
+	margin-bottom: 50px;
+}
+
+table.anual>caption {
+	padding-bottom: 30px;
+	font-weight: 600;
+}
+
+table.anual>tbody>tr>th {
+	background-color: transparent;
+	color: #000;
+	font-weight: bolder;
+	text-align: left;
+	min-width: 40px;
+}
+
+table.anual>tbody>tr>td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 2px solid #999;
+}
+
+table.anual>tbody>tr>td:nth-child(14) {
+	font-weight: 700;
+}
+
+th>sup {
+	font-size: 10px;
+}
+
+table.anual>tbody>tr>td>span {
+	width: 100px;
+}
+
+table.anual>tbody>tr>td>span>span {
+	float: rigth;
+	font-size: 10px;
+}
+
+#cargando, #autentificacion {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+#cargando {
+	background-color: #fff;
+	background-image: url('../img/trabajando.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.5;
+}
+
+#autentificacion {
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+#autentificacion>div {
+	display: grid;
+	border: 4px solid #ccc;
+	border-radius: 10px 10px;
+	height: 200px;
+	width: 300px;
+	background-color: #fff;
+	justify-content: space-evenly;
+	align-content: center;
+}
+
+#autentificacion>div>p {
+	padding-top: 12px;
+}
+
+#autentificacion>div>input {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+}
+
+#autentificacion>div>input[type=text], #autentificacion>div>input[type=password] {
+	width: 150px;
+	height: 26px;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	font-size: 18px;
+}
+
+#autentificacion>div>input:nth-child(5) {
+	margin-top: 30px;
+	height: 26px;
+}
+
+#graficos {
+	position: absolute;
+}
+
+#graficos>a {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 150px;
+	top: -10px;
+	margin-left: 0;
+	margin-right: 4px;
+	text-decoration: none;
+	background-color: #555;
+	color: #fff;
+}

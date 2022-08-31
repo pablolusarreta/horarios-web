@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Grafico horarios jornada</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font-family: "Segoe UI", verdana, sans-serif;
+            background-color: #fff;
+            color: #666;
+            margin: 0px;
+            padding: 0px;
+            font-size: 15px;
+            cursor: default;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        caption {
+            font-size: 20px;
+            margin: 20px;
+        }
+
+        #salida>table {
+            margin: 0px auto;
+            width: 70vw;
+
+            border-collapse: collapse;
+            background-color: transparent;
+            border: 1px solid #aaa;
+        }
+
+        #salida>table>tbody>tr>td,
+        #salida>table>tbody>tr>th {
+            text-align: center;
+            min-width: 70px;
+            font-weight: 600;
+            border: 1px solid #aaa;
+        }
+
+        #salida>table>tbody>tr>th {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        #salida>table>tbody>tr>th:nth-child(8) {
+            background-color: #fff;
+            max-width: 900px;
+        }
+
+        #salida>table>tbody>tr>td:nth-child(1) {
+            font-size: 20px;
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        #salida>table>tbody>tr>td>div:nth-child(1) {
+            font-size: 20px;
+        }
+
+        #salida>table>tbody>tr>td:nth-child(5)>div:nth-child(1) {
+            font-weight: 600;
+        }
+
+        #salida>table>tbody>tr>td>div:nth-child(2) {
+            font-size: 11px;
+            color: #000;
+        }
+
+        #grafico {
+            margin-right: 100px;
+            width: 800px;
+            height: 600px;
+
+        }
+    </style>
+    <script>
+        var DATOS;
+        var Color = ['#ccc', '#99f', '#6cc', '#f99', '#f66'];
+        var MES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        var hoy = new Date().getTime();
+        function inicio() {
+            var url = "graficoshorarios?t=" + new Date().getTime();
+            var solicitud = new XMLHttpRequest();
+            solicitud.addEventListener('load', mostrar, false);
+            solicitud.open("GET", url, true);
+            solicitud.send(null);
+        }
+        function mostrar(e) {
+            DATOS = JSON.parse(e.target.responseText);
+            var S = '<table><caption>Horarios por jornada trabajada desde :<br>1 de Enero de 2008 hasta el ' + formatoDMAHM(hoy) + '</caption>';
+            S += '<tr><th>A&ntilde;o</th><th style="background-color:' + Color[0] + '">0-3</th><th style="background-color:' + Color[1] + '">3-5</th>';
+            S += '<th style="background-color:' + Color[2] + '">5-8</th><th style="background-color:' + Color[3] + '">8-12</th><th style="background-color:' + Color[4] + '">12 o +</th><th>Total</th>';
+            S += '<th rowspan="' + (DATOS.length + 1) + '"><canvas width="1000" height="750" id="grafico"></canvas></th></tr>';
+            for (var i in DATOS) {
+                S += '<tr><td>' + DATOS[i][0] + '</td>';
+                S += '<td>' + DATOS[i][1] + '</td>';
+                S += '<td>' + DATOS[i][2] + '</td>';
+                S += '<td>' + DATOS[i][3] + '</td>';
+                S += '<td>' + DATOS[i][4] + '</td>';
+                S += '<td>' + DATOS[i][5] + '</td>';
+                S += '<td>' + (DATOS[i][1] + DATOS[i][2] + DATOS[i][3] + DATOS[i][4] + DATOS[i][5]) + '</td>';
+                S += '</tr>';
+            }
+            S += '</table>';
+            document.getElementById('salida').innerHTML = S;
+            // GRAFICO
+            var ini = [100, 500, 1000];
+            var txt = [['De 0 a 3 horas', Color[0]],
+            ['Entre 3 y 5 horas', Color[1]],
+            ['Entre 5 y 8 horas', Color[2]],
+            ['Entre 8 y 12 horas', Color[3]],
+            ['Mas de  12 horas', Color[4]]];
+            var anio = 60;
+            var alto = 10000;
+            var proporcion = 36000;
+            var grafico = document.getElementById('grafico');
+            var ctx = grafico.getContext("2d");
+            //MARCO--------------------------------------
+            ctx.beginPath();
+            ctx.strokeStyle = "#999";
+            ctx.moveTo(ini[0], ini[0] - 50);
+            ctx.lineTo(ini[0], ini[1]);
+            ctx.lineTo(ini[2], ini[1]);
+            ctx.stroke();
+            //EJE S -------------------------------------
+            ctx.beginPath();
+            ctx.strokeStyle = Color[0];
+            /*ctx.moveTo(ini[0], 95);
+            ctx.lineTo(ini[2], 95);*/
+            ctx.font = "10px 'Segoe UI',verdana, sans-serif";
+            ctx.textAlign = "start";
+            //EJE X
+            for (var i = 0; i < DATOS.length; i++) {
+                ctx.fillText(DATOS[i][0], (ini[0] + (i * anio)), ini[1] + 14);
+            }
+            //EJE Y
+            ctx.textAlign = "end";
+            for (var i = 0; i < 13; i++) {
+                ctx.fillText(i * 10, (ini[0] - 14), ini[1] - (i * 36));
+            }
+            // LELLENDA
+            ctx.textAlign = "start";
+            for (var i = 0; i < txt.length; i++) {
+                ctx.fillText(txt[i][0], ini[0] + 100, 42 + (i * 20));
+            }
+            ctx.stroke();
+            // LINEAS MUESTRA
+            for (var i = 0; i < txt.length; i++) {
+                ctx.beginPath();
+                ctx.strokeStyle = txt[i][1];
+                ctx.moveTo(ini[0] + 50, 40 + (i * 20));
+                ctx.lineTo(ini[0] + 90, 40 + (i * 20));
+                ctx.stroke();
+            }
+
+            //Grafico 0-3
+            ctx.beginPath();
+            ctx.strokeStyle = Color[0];
+            ctx.lineWidth = 2.0;
+            ctx.lineCap = "round";
+
+            ctx.moveTo(ini[0], ini[1] - 200 - Math.floor(DATOS[0][1] / alto));
+            for (var i = 1; i < DATOS.length; i++) {
+                ctx.lineTo((ini[0] + (i * anio)), ini[1] - Math.floor(DATOS[i][1] * proporcion / alto));
+            }
+            ctx.stroke();
+            //Grafico 3-5
+            ctx.beginPath();
+            ctx.strokeStyle = Color[1];
+            ctx.moveTo(ini[0], ini[1] - 300 - Math.floor(DATOS[0][1] * 2 / alto));
+            for (var i = 1; i < DATOS.length; i++) {
+                ctx.lineTo((ini[0] + (i * anio)), ini[1] - Math.floor(DATOS[i][2] * proporcion / alto));
+            }
+            ctx.stroke();
+            //Grafico 5-8
+            ctx.beginPath();
+            ctx.strokeStyle = Color[2];
+            ctx.moveTo(ini[0], ini[1] - 220 - Math.floor(DATOS[0][2] / alto));
+            for (var i = 1; i < DATOS.length; i++) {
+                ctx.lineTo((ini[0] + (i * anio)), ini[1] - Math.floor(DATOS[i][3] * proporcion / alto));
+            }
+            ctx.stroke();
+            //Grafico 8-12
+            ctx.beginPath();
+            ctx.strokeStyle = Color[3];
+            ctx.moveTo(ini[0], ini[1] - 40 - Math.floor(DATOS[0][2] / alto));
+            for (var i = 1; i < DATOS.length; i++) {
+                ctx.lineTo((ini[0] + (i * anio)), ini[1] - Math.floor(DATOS[i][4] * proporcion / alto));
+            }
+            ctx.stroke();
+            //Grafico +12
+            ctx.beginPath();
+            ctx.strokeStyle = Color[4];
+            ctx.moveTo(ini[0], ini[1] - 10 - Math.floor(DATOS[0][2] / alto));
+            for (var i = 1; i < DATOS.length; i++) {
+                ctx.lineTo((ini[0] + (i * anio)), ini[1] - Math.floor(DATOS[i][5] * proporcion / alto));
+            }
+            ctx.stroke();
+
+        }
+        function formatoDMAHM(i) {
+            var t = new Date(i);
+            return t.getDate() + ' de ' + MES[t.getMonth()] + ' de ' + t.getFullYear() + ' a las ' + t.getHours() + ':' + t.getMinutes();
+        }
+        window.addEventListener('load', inicio, false);
+    </script>
+</head>
+
+<body>
+    <section id="salida"></section>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+// ***********************************************
+// * Author       : Pablo Lusarreta              *
+// * WEB          : http://pablo.lusarreta.net   *
+// * E-Mail       : pablo@lusarreta.net          *
+// ***********************************************
+// -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Informe de horarios</title>
+    <script
+        type="text/javascript">if (location.host == 'sarobe.info') { location.host = 'aeg.sarobe.info'; location.replace(); }</script>
+    <script type="text/javascript" src="script/base64ed.js"></script>
+    <script type="text/javascript" src="/script/default.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/informe.css" media="screen,print" />
+    <link rel="stylesheet" type="text/css" href="/css/default.print.css" media="print" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript">
+        window.onload = function () {
+            inicia();
+            setTimeout(function () {
+                cargaGrupo(0, 0, mes);
+                document.getElementById('tapon').style.backgroundImage = 'none';
+            }, 2000);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="salida"></div>
+    <div id="tapon"></div>
+    <div id="control"></div>
+    <div id="cargando"></div>
+</body>
+
+</html>

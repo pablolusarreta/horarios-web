@@ -1,0 +1,11 @@
+//Heroku
+$ heroku login
+
+$ git add .
+$ git commit -am "Nueva subida"
+$  -am "   
+
+// Azure
+
+git remote add azure https://pablo_lusarreta@horarios-web.scm.azurewebsites.net/horarios-web.git
+git push -u azure master

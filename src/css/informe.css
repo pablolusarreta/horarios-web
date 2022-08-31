@@ -1,0 +1,407 @@
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #fff;
+	color: #000;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	cursor: default;
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, body, html, p, blockquote, input, img {
+	margin: 0px;
+	padding: 0px;
+}
+
+select {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	border: 0px;
+	font-size: 18px;
+	color: #333;
+	background-color: transparent;
+}
+
+table {
+	margin: 0px auto;
+	width: 95%;
+	max-width: 1200px;
+	border-collapse: collapse;
+	background-color: transparent;
+}
+
+table.tabla_anio {
+	margin-top: 100px;
+	border: 6px solid #999;
+}
+
+table>caption {
+	font-size: 18px;
+	text-align: left;
+}
+
+td, th {
+	padding: 1px 10px;
+	vertical-align: top;
+	white-space: nowrap;
+	max-width: 110px;
+	width: 10px;
+	background-color: #ccc;
+}
+
+td.selector {
+	max-width: 130px;
+	text-align: right;
+}
+
+th {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	background-color: #999;
+	color: #fff;
+}
+
+/*TD*/
+
+td.laboral, tr.laboral {
+	background-color: #fff;
+}
+
+td.domingo {
+	background-color: #ccf;
+}
+
+td.sabado {
+	background-color: #ccf;
+}
+
+td.festivo {
+	background-color: #fc9;
+}
+
+td.vacaciones {
+	background-color: #ff9;
+}
+
+td.otros {
+	background-color: #9c9;
+}
+
+td.ano_anterior {
+	background-color: #c99;
+}
+
+td.nota {
+	max-width: 350px;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: height 0.5s;
+}
+
+/*TR*/
+
+tr.domingo {
+	background-color: #ccf;
+}
+
+tr.sabado {
+	background-color: #ccf;
+}
+
+tr.festivo {
+	background-color: #fda;
+}
+
+tr.vacaciones {
+	background-color: #ffb;
+}
+
+tr.otros {
+	background-color: #beb;
+}
+
+tr.ano_anterior {
+	background-color: #ebb;
+}
+
+td>select {
+	font-size: 11px;
+	color: #000;
+}
+
+td>span.etiqueta {
+	display: none;
+	color: #000;
+	font-weight: bolder;
+}
+
+table.horario {
+	border-width: 0px;
+}
+
+table.horario>tbody>tr>td {
+	margin: 0px;
+	padding: 0px;
+}
+
+table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	text-align: center;
+	width: 40px;
+	border: none;
+	background-color: transparent;
+	cursor: default;
+}
+
+table.horario>tbody>tr>td>img {
+	margin: 0px 4px 0px 6px;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+table.horario>tbody>tr>td>img:hover {
+	opacity: 1;
+}
+
+#control {
+	position: fixed;
+	width: 100%;
+	height: 49px;
+	font-size: 24px;
+	border-bottom: 4px solid #999;
+	background-color: #ccc;
+	background-image: url('fondo_menu.jpg');
+	box-shadow: 0px 0px 20px #666;
+}
+
+#selectores {
+	position: fixed;
+	top: 16px;
+	right: 0;
+}
+
+#selectores>select {
+	margin-right: 40px;
+	margin-top: 10px;
+	padding: 0 20px;
+	background-color: #999;
+	color: #fff;
+	font-size: 16px;
+}
+
+#navegador {
+	position: fixed;
+	top: 4px;
+	left: 20px;
+	color: #ccc;
+	font-size: 19px;
+}
+
+#navegador>span {
+	display: inline-block;
+	position: relative;
+	font-weight: 600;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: #666;
+	margin-top: 15px;
+	margin-right: 4px;
+	padding: 0 10px 0px 10px;
+	transition: background-color 0.5s, color 0.5s;
+}
+
+#navegador>span:hover, #navegador>span.activo {
+	color: #000;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+#salida, #tapon {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+}
+
+#salida>div.opcion {
+	margin: 20px auto;
+	padding: 20px;
+	width: 300px;
+	height: 100px;
+	border: 4px solid #ccc;
+	box-shadow: 4px 4px 8px #666;
+}
+
+#salida>div.opcion>span {
+	font-size: 18px;
+	float: right;
+	text-align: right;
+}
+
+#salida>div.opcion>span>button, #selectores>button {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #999;
+	color: #fff;
+	border: none;
+	width: 130px;
+	padding: 4px 6px;
+	margin: 0 0 0 10px;
+	transition: background-color 0.5s;
+}
+
+#salida>div.opcion>span>button:hover, #selectores>button:hover {
+	background-color: #666;
+}
+
+#salida>div.nota {
+	width: 80%;
+	max-width: 900px;
+	text-align: left;
+	font-size: 11px;
+	color: #666;
+	margin: auto;
+	margin-bottom: 100px;
+}
+
+#normas {
+	border: 4px solid #ccc;
+	margin: 0 auto;
+	width: 500px;
+}
+
+#normas>tbody>tr>td {
+	padding: 10px 20px;
+}
+
+#normas>tbody>tr>td>input {
+	width: 70px;
+	height: 18px;
+	text-align: right;
+	border: 1px solid #ccc;
+}
+
+#normas>tbody>tr>td>button {
+	margin: 0px 4px;
+	width: 19px;
+	height: 19px;
+	font-size: 11px;
+	color: #f00;
+	font-weight: bolder;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+#normas>tbody>tr>td>button:hover {
+	opacity: 1;
+}
+
+#total_mes>td>span {
+	padding: 0px 20px;
+}
+
+table.anual {
+	margin-top: 100px;
+	width: 970px;
+	border-color: #999;
+	margin-bottom: 50px;
+}
+
+table.anual>caption {
+	padding-bottom: 30px;
+	font-weight: 600;
+}
+
+table.anual>tbody>tr>th {
+	background-color: transparent;
+	color: #000;
+	font-weight: bolder;
+	text-align: left;
+	min-width: 40px;
+}
+
+table.anual>tbody>tr>td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 2px solid #999;
+}
+
+table.anual>tbody>tr>td:nth-child(14) {
+	font-weight: 700;
+}
+
+th>sup {
+	font-size: 10px;
+}
+
+table.anual>tbody>tr>td>span {
+	width: 100px;
+}
+
+table.anual>tbody>tr>td>span>span {
+	float: rigth;
+	font-size: 10px;
+}
+
+#cargando {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	background-image: url('trabajando.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.5;
+}
+
+/*/////////////////////////////////////*/
+
+table {
+	width: 80%;
+}
+
+table, input {
+	font-size: 11px;
+}
+
+table.horario {
+	width: 150px;
+}
+
+table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
+	border: 0px solid #fff;
+}
+
+table.horario>tbody>tr>td>img {
+	visibility: hidden;
+}
+
+tr.domingo, tr.sabado, tr.festivo, tr.vacaciones, tr.otros, tr.ano_anterior {
+	/*background-color: transparent;*/
+}
+
+td>span.etiqueta {
+	display: inline;
+	white-space: pre;
+}
+
+td.nota {
+	min-width: 400px;
+	white-space: normal;
+	font-size: 9px;
+}
+
+#navegador, td>select, div.opcion {
+	display: none;
+}
+
+#salida {
+	top: 10px;
+}
+
+#tapon {
+	position: fixed;
+	top: 0px;
+	height: 100%;
+	background-color: transparent;
+	background-image: url('trabajando.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+}
