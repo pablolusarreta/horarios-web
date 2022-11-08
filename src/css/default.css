@@ -158,6 +158,7 @@ table.horario>tbody>tr>td {
 
 table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
 	font-family: "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
 	text-align: center;
 	width: 40px;
 	border: none;
