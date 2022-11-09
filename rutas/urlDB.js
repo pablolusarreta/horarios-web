@@ -1,1 +1,0 @@
-const urlDB = 'C:/Users/pablo/Google%20Drive/horarios.web/';

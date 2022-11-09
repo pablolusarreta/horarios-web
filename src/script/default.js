@@ -388,13 +388,13 @@ function configuracion() {
 						tmp += '<tr><td>' + DATOS.Normas[i][1] + '</td>';
 						tmp += '<td style="text-align:right"><input id ="' + DATOS.Normas[i][0] + '"type="time" value="' + (DATOS.Normas[i][3]) + '" name="' + (DATOS.Normas[i][3]) + '" ';
 						tmp += 'onchange="this.style.borderColor=\'#f00\';" />';
-						tmp += '<button onclick="edita_norma(this.previousSibling,\'' + tipo[1] + '\',\'' + tipo[2] + '\');" title="Actualizar">·</button></td></tr>';
+						tmp += '<button onclick="edita_norma(this.previousSibling,\'' + tipo[1] + '\',\'' + tipo[2] + '\');" title="Actualizar"></button></td></tr>';
 						break;
 					case 'number':
 						tmp += '<tr><td>' + DATOS.Normas[i][1] + '</td>';
 						tmp += '<td style="text-align:right"><input id ="' + DATOS.Normas[i][0] + '"type="number" value="' + DATOS.Normas[i][3] + '" name="' + (DATOS.Normas[i][3]) + '" ';
 						tmp += 'onchange="this.style.borderColor=\'#f00\';" />';
-						tmp += '<button onclick="edita_norma(this.previousSibling,' + tipo[1] + ',' + tipo[2] + ');" title="Actualizar">·</button></td></tr>';
+						tmp += '<button onclick="edita_norma(this.previousSibling,' + tipo[1] + ',' + tipo[2] + ');" title="Actualizar"></button></td></tr>';
 						break;
 				}
 			}
