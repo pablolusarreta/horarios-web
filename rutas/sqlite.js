@@ -123,7 +123,25 @@ router.get('/editor', (req, res) => {
                 db.run(sql)
                 res.json({ error: false })
                 break
-
+            case '7':
+                condicion = `WHERE Grupo=${req.query.grupo} AND ID>${req.query.ini} AND ID<${req.query.fin} ORDER BY ID ASC`
+                Mentradas = []; Mnotas = []; Mdias = [];
+                //  ENTRADAS
+                sql = `SELECT ID,Tipo FROM Entradas ${condicion}`
+                db.all(sql, [], (err, f) => {
+                    f.forEach(o => {
+                        Mentradas.push([o.ID, o.Tipo])
+                    })
+                    //  NOTAS
+                    sql = `SELECT ID,Texto FROM Notas WHERE Grupo=${req.query.grupo} AND ID=${req.query.ini - 86400}`
+                    db.all(sql, [], (err, f) => {
+                        f.forEach(o => {
+                            Mnotas.push([o.ID, autf8(o.Texto)])
+                        })
+                        res.json({ Marcas: Mentradas, Notas: Mnotas })
+                    })
+                })
+                break
         }
     } else {
         let Os = { Grupo: [], Tipo: [[0, "Entrada"], [1, "Salida"], [2, "Marca"]] }
