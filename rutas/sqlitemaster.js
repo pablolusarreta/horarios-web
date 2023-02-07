@@ -83,19 +83,10 @@ router.get('/sqliteTabla', (req, res) => {
 //---------- S E L E C T
 router.get('/select', async (req, res) => {
     try {
-        baseDatos = req.query.db
-        let db = new sqlite3.Database(baseDatos)
-        let listado = []
-        console.log(campos)
+        let db = new sqlite3.Database('./db/horarios.db')
         db.all("SELECT * FROM " + req.query.t, [], (err, rows) => {
-            if (err) { console.error(err.message) }
-            rows.forEach(row => {
-                let par = []
-                campos.forEach(i => { par.push(`"${(i.nombre)}":"${row[i.nombre]}"`) })
-                listado.push(JSON.parse('{' + par.toString() + "}"))
-            })
-            //console.log(listado)
-            res.json(listado)
+            if (err) { console.error(err.message) }           
+            res.json(rows)
         })
         db.close()
     } catch (e) {
@@ -103,18 +94,19 @@ router.get('/select', async (req, res) => {
         res.status(500).send('error')
     }
 })
-//---------- C R U D
-router.post('/crud', async (req, res) => {
-    try {
-        let ob = req.body
-        //console.log(ob)
-        let db = new sqlite3.Database(baseDatos)
-        await db.run(ob.SQL)
+//---------- C R U D 
+//          UPDATE Configuracion SET Texto='Asuntos propios y trienios' WHERE ID=204;
+router.get('/crud', async (req, res) => {
+    try {      
+        let db = new sqlite3.Database('./db/horarios.db')
+        let sql = decodeURI(req.query.SQL)
+        res.json({ "SQL": sql, "estado": true })
+        await db.run(sql)
         db.close()
-        res.send({ "estado": true }) // =>
+        //res.send({ "estado": true }) // =>
     } catch (e) {
         console.log(e)
-        res.status(500).send('Problema al actualizar persona')
+        res.status(500).send('Problema con el SQL')
     }
 })
 ////////////////////////////////////////////////////////////

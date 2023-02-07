@@ -1,244 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title>Fichador</title>
-<link rel="shortcut icon" href="favicon.ico" />
-<script type="text/javascript">
-var READY_STATE_UNINITIALIZED=0;var READY_STATE_LOADING=1;var READY_STATE_LOADED=2;var READY_STATE_INTERACTIVE=3;var READY_STATE_COMPLETE=4;var peticion_http;
-function cargaContenido(url, metodo, funcion) {peticion_http = inicializa_xhr();if(peticion_http) {peticion_http.onreadystatechange = funcion;peticion_http.open(metodo, url, true);peticion_http.send(null);}}
-function inicializa_xhr() {	if(window.XMLHttpRequest) {		return new XMLHttpRequest();	}	else if(window.ActiveXObject) {		return new ActiveXObject("Microsoft.XMLHTTP");	}}
-///////////////////////////////////////////////////////////////////
-    var m,h,tipo,ahora,ini,fin;
-    var marca = new Date();
-    var tipo_tx = ['Entrada','Salida'];
-    var dia_tx  = ['Domingo', 'Lunes', 'Martes', 'Miercole', 'Jueves', 'Viernes', 'Sabado'];
-    var mes_tx  = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-   function relog(){
-        m = new Date();
-        h =[m.getHours(),m.getMinutes(),m.getSeconds()];
-        document.getElementById('relog').innerHTML = ((h[0]<10)?'0'+h[0]:h[0])+' : '+((h[1]<10)?'0'+h[1]:h[1])+' <sup>'+((h[2]<10)?'0'+h[2]:h[2])+'</sup><span><span>'+dia_tx[m.getDay()]+' '+m.getDate()+'</span><br>'+mes_tx[m.getMonth()]+' de '+m.getFullYear()+'</span>';
-   }
-    function ficha(t){
-        trabajando(1);
-        tipo = t;
-        marca = new Date();
-        ahora = marca.getTime();
-        cargaContenido('/editor?accion=1&grupo=0&id='+(Math.round(ahora/1000))+'&tabla=Entradas&valor='+(Math.round(ahora/1000))+'&tipo='+tipo+'&app=1', 'GET', comprueba );    
-    }
-    function comprueba(){
-        if(peticion_http.readyState == READY_STATE_COMPLETE) {
-		  if(peticion_http.status == 200) {
-			  var respuesta_json = peticion_http.responseText;
-              var salida = eval("("+respuesta_json+")");
-              trabajando(0);
-              if(salida.id > 0){
-                  trabajando(1);
-                  document.getElementById('salida').innerHTML = '<span class=\"correcto\">Nuevo Marcaje </span> '+tipo_tx[tipo]+' '+((h[0]<10)?'0'+h[0]:h[0])+' : '+((h[1]<10)?'0'+h[1]:h[1]);
-                  setTimeout(function(){
-                       trabajando(1);
-                       cargaContenido('/editor?&grupo=0&ini='+ini+'&fin='+fin+'&app='+m.getTime(), 'GET', iniciar );
-                  },3000);
-              }else{
-                  
-                  document.getElementById('salida').innerHTML = '<span class=\"incorrecto\">ERROR! no se produjo ningún cambio ..</span>';
-              }
-              
-          }
+    <meta charset="UTF-8">
+    <title>Fichador</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script type="text/javascript">
+        var READY_STATE_UNINITIALIZED = 0; var READY_STATE_LOADING = 1; var READY_STATE_LOADED = 2; var READY_STATE_INTERACTIVE = 3; var READY_STATE_COMPLETE = 4; var peticion_http;
+        function cargaContenido(url, metodo, funcion) { peticion_http = inicializa_xhr(); if (peticion_http) { peticion_http.onreadystatechange = funcion; peticion_http.open(metodo, url, true); peticion_http.send(null); } }
+        function inicializa_xhr() { if (window.XMLHttpRequest) { return new XMLHttpRequest(); } else if (window.ActiveXObject) { return new ActiveXObject("Microsoft.XMLHTTP"); } }
+        ///////////////////////////////////////////////////////////////////
+        var m, h, tipo, ahora, ini, fin;
+        var marca = new Date();
+        var tipo_tx = ['Entrada', 'Salida'];
+        var dia_tx = ['Domingo', 'Lunes', 'Martes', 'Miercole', 'Jueves', 'Viernes', 'Sabado'];
+        var mes_tx = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        function relog() {
+            m = new Date();
+            h = [m.getHours(), m.getMinutes(), m.getSeconds()];
+            document.getElementById('relog').innerHTML = ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]) + ' <sup>' + ((h[2] < 10) ? '0' + h[2] : h[2]) + '</sup><span><span>' + dia_tx[m.getDay()] + ' ' + m.getDate() + '</span><br>' + mes_tx[m.getMonth()] + ' de ' + m.getFullYear() + '</span>';
         }
-    }
-    function iniciar(){
-        if(peticion_http.readyState == READY_STATE_COMPLETE) {
-		  if(peticion_http.status == 200) {
-			 var respuesta_json = peticion_http.responseText;
-             var datos = eval("("+respuesta_json+")");
-             trabajando(0);
-             var s = '<table>';
-                for(var i in datos.hoy){
-                    var tmp = new Date(datos.hoy[i][0]*1000);
-                    s += '<tr><td onclick="elimina('+datos.hoy[i][0]+',\''+tmp.toLocaleTimeString()+'\')"><div>+</div></td><td>'+tipo_tx[datos.hoy[i][1]]+'</td><td>'+tmp.toLocaleTimeString()+'</td></tr>';
+        function ficha(t) {
+            trabajando(1);
+            tipo = t;
+            marca = new Date();
+            ahora = marca.getTime();
+            cargaContenido('/editor?accion=1&grupo=0&id=' + (Math.round(ahora / 1000)) + '&tabla=Entradas&valor=' + (Math.round(ahora / 1000)) + '&tipo=' + tipo + '&app=1', 'GET', comprueba);
+        }
+        function comprueba() {
+            if (peticion_http.readyState == READY_STATE_COMPLETE) {
+                if (peticion_http.status == 200) {
+                    var respuesta_json = peticion_http.responseText;
+                    var salida = eval("(" + respuesta_json + ")");
+                    trabajando(0);
+                    if (salida.id > 0) {
+                        trabajando(1);
+                        document.getElementById('salida').innerHTML = '<span class=\"correcto\">Nuevo Marcaje </span> ' + tipo_tx[tipo] + ' ' + ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]);
+                        setTimeout(function () {
+                            trabajando(1);
+                            cargaContenido('/editor?&grupo=0&ini=' + ini + '&fin=' + fin + '&app=' + m.getTime(), 'GET', iniciar);
+                        }, 3000);
+                    } else {
+
+                        document.getElementById('salida').innerHTML = '<span class=\"incorrecto\">ERROR! no se produjo ningún cambio ..</span>';
+                    }
+
                 }
-             s += '</table>';
-             document.getElementById('salida').innerHTML = s;
             }
         }
-    }
-    function reinicia(){
-         if(peticion_http.readyState == READY_STATE_COMPLETE) {
-		  if(peticion_http.status == 200) {
-                document.getElementById('salida').innerHTML="<span class=\"correcto\">Eliminando marcaje</span> "+peticion_http.responseText;;
-                setTimeout(function(){
-                    cargaContenido('/editor?&grupo=0&ini='+ini+'&fin='+fin+'&app='+m.getTime(), 'GET', iniciar );
-                },3000);
-          }else{
-              document.getElementById('salida').innerHTML="<span class=\"incorrecto\">Error en la eliminacion</span> "+peticion_http.responseText;
-              setTimeout(function(){
-                     cargaContenido('/editor?&grupo=0&ini='+ini+'&fin='+fin+'&app='+m.getTime(), 'GET', iniciar );
-              },3000);
-          }
+        function iniciar() {
+            if (peticion_http.readyState == READY_STATE_COMPLETE) {
+                if (peticion_http.status == 200) {
+                    var respuesta_json = peticion_http.responseText;
+                    var datos = eval("(" + respuesta_json + ")");
+                    trabajando(0);
+                    var s = '<table>';
+                    for (var i in datos.hoy) {
+                        var tmp = new Date(datos.hoy[i][0] * 1000);
+                        s += '<tr><td onclick="elimina(' + datos.hoy[i][0] + ',\'' + tmp.toLocaleTimeString() + '\')"><div>+</div></td><td>' + tipo_tx[datos.hoy[i][1]] + '</td><td>' + tmp.toLocaleTimeString() + '</td></tr>';
+                    }
+                    s += '</table>';
+                    document.getElementById('salida').innerHTML = s;
+                }
+            }
         }
-    }
-    function elimina(n,t){
-        if(confirm("ELIMINAR marcaje ?\n"+t)){
-            trabajando(1);
-            cargaContenido('/editor?accion=2&grupo=0&id='+n+'&app=1', 'GET', reinicia );
+        function reinicia() {
+            if (peticion_http.readyState == READY_STATE_COMPLETE) {
+                if (peticion_http.status == 200) {
+                    document.getElementById('salida').innerHTML = "<span class=\"correcto\">Eliminando marcaje</span> " + peticion_http.responseText;;
+                    setTimeout(function () {
+                        cargaContenido('/editor?&grupo=0&ini=' + ini + '&fin=' + fin + '&app=' + m.getTime(), 'GET', iniciar);
+                    }, 3000);
+                } else {
+                    document.getElementById('salida').innerHTML = "<span class=\"incorrecto\">Error en la eliminacion</span> " + peticion_http.responseText;
+                    setTimeout(function () {
+                        cargaContenido('/editor?&grupo=0&ini=' + ini + '&fin=' + fin + '&app=' + m.getTime(), 'GET', iniciar);
+                    }, 3000);
+                }
+            }
         }
-    }
-    function trabajando(es){
-        var ob = document.getElementById('salida');
-        if(es==1){
-            ob.innerHTML = '';
-            ob.style.backgroundImage = "url('img/trabajando.gif')";
-        }else if (es==0){
-            ob.style.backgroundImage = "none";
+        function elimina(n, t) {
+            if (confirm("ELIMINAR marcaje ?\n" + t)) {
+                trabajando(1);
+                cargaContenido('/editor?accion=2&grupo=0&id=' + n + '&app=1', 'GET', reinicia);
+            }
         }
-    }
-    window.onload = function(){
-        relog();
-        setInterval(relog,1000);
-        marca.setHours(0);marca.setSeconds(0);marca.setMilliseconds(0);
-        ini = marca.getTime()/1000;
-        marca.setHours(24);
-        fin = marca.getTime()/1000;
-        cargaContenido('/editor?&grupo=0&ini='+ini+'&fin='+fin+'&app='+m.getTime(), 'GET', iniciar ); 
-    }
-    
-</script>
+        function trabajando(es) {
+            var ob = document.getElementById('salida');
+            if (es == 1) {
+                ob.innerHTML = '';
+                ob.style.backgroundImage = "url('img/trabajando.gif')";
+            } else if (es == 0) {
+                ob.style.backgroundImage = "none";
+            }
+        }
+        window.onload = function () {
+            relog();
+            setInterval(relog, 1000);
+            marca.setHours(0); marca.setSeconds(0); marca.setMilliseconds(0);
+            ini = marca.getTime() / 1000;
+            marca.setHours(24);
+            fin = marca.getTime() / 1000;
+            cargaContenido('/editor?&grupo=0&ini=' + ini + '&fin=' + fin + '&app=' + m.getTime(), 'GET', iniciar);
+        }
 
-<style>
-@font-face {
-    font-family: 'segoeui';
-    src: url('../fuentes/segoe_ui_light-webfont.eot');
-    src: url('../fuentes/segoe_ui_light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fuentes/segoe_ui_light-webfont.woff') format('woff'),
-         url('../fuentes/segoe_ui_light-webfont.ttf') format('truetype'),
-         url('../fuentes/segoe_ui_light-webfont.svg#ubunturegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-/*--------------------- BODY ---------------------*/
-body {
-	font-family:segoeui, Arial, Helvetica, sans-serif;
-	color:#666;
-	margin:0;
-	padding:0;
-	background: #fff;
-	font-size: 40px;
-	cursor:default;
-	border-collapse: collapse;
-}
-/*--------------------- HTML ---------------------*/
-div, table, tr, td {
-	margin:0px; 
-	padding:0px;
-}
-    button, #relog, #salida{
-        font-family:segoeui, Arial, Helvetica, sans-serif;
-        display: block;
-        width: 90%;
-        font-size: 50px;
-        font-weight: bold;
-        margin: 20px auto;
-        padding: 20px 0px;
-        border: none;
-        background-color: #099;
-        color: #fff;
-        transition: background-color 0.5s;
-        
-    }
-    button:hover{
-        background-color: #0cc;
-    }
-   #control > button:nth-child(1){
-        margin-top: 80px;
-    }
-    #relog{
-        font-size: 130px;
-        background-color: #fff;
-        color: #333;
-        min-width: 300px;
-        height: 120px;
-        overflow: hidden;
-    }  
-    #relog > span {
-        float: right;
-        font-size: 40px;
-        text-align: right;
-    }
-    #relog > span > span {
-        font-size: 70px;
-    }
-    #relog > sup {
-        font-size: 65px;
-    }
-    #salida {
-        margin-top: 100px;
-        text-align: center;
-        background-color: #fff;
-        background-image: none;
-        background-repeat: no-repeat;
-        background-position: center;
-        min-height: 350px;
-        color: #000;
-    }
-    #salida > span {
-        color: #066;
-        font-weight: bold;
-        padding-right: 100px;
-        
-    }
-    #salida > span.correcto {
-        color: #066;
-     }
-    #salida > span.incorrecto {
-        color: #f00;
-     }
-    #salida > table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    #salida > table tr {
-      
-    }
-    #salida > table td:nth-child(1){
-        width: 100px;
-        height: 100px;
-        background-color: #099;
-        color: #fff;
-        font-size: 100px;
-        border: 10px solid #fff;
-        overflow: hidden;
-    }
-    #salida > table td:nth-child(1) > div {
-        position: relative;
-        top: -18px;
-        right: -15px;
-        width: 100px;
-        height: 100px;
-        transform: rotate(45deg);
-    }
-    #salida > table td:nth-child(2){
-        font-size: 50px;
-        width: 100px;
-        border: 10px solid #fff;
-        background-color: #999;
-        color: #fff;
-    }
-     #salida > table td:nth-child(3){
-        width: 400px;
-        text-align: right;
-        font-size: 80px;
-    }
-</style>
+    </script>
+
+    <style>
+        @font-face {
+            font-family: 'segoeui';
+            src: url('../fuentes/segoe_ui_light-webfont.eot');
+            src: url('../fuentes/segoe_ui_light-webfont.eot?#iefix') format('embedded-opentype'),
+                url('../fuentes/segoe_ui_light-webfont.woff') format('woff'),
+                url('../fuentes/segoe_ui_light-webfont.ttf') format('truetype'),
+                url('../fuentes/segoe_ui_light-webfont.svg#ubunturegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /*--------------------- BODY ---------------------*/
+        body {
+            font-family: segoeui, Arial, Helvetica, sans-serif;
+            color: #ccc;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            font-size: 40px;
+            cursor: default;
+            border-collapse: collapse;
+        }
+
+        /*--------------------- HTML ---------------------*/
+        div,
+        table,
+        tr,
+        td {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        button,
+        #relog,
+        #salida {
+            font-family: segoeui, Arial, Helvetica, sans-serif;
+            display: block;
+            width: 90%;
+            font-size: 50px;
+            font-weight: bold;
+            margin: 20px auto;
+            padding: 20px 0px;
+            border: none;
+            color: #fff;
+            transition: background-color 0.5s;
+
+        }
+
+        #control>button {
+            background-color: #066;
+        }
+
+        #control>button:nth-child(1) {
+            margin-top: 80px;
+        }
+
+        button:hover {
+            background-color: #0cc;
+        }
+
+
+
+        #relog {
+            font-size: 130px;
+            color: #666;
+            min-width: 300px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        #relog>span {
+            float: right;
+            font-size: 40px;
+            text-align: right;
+        }
+
+        #relog>span>span {
+            font-size: 70px;
+        }
+
+        #relog>sup {
+            font-size: 65px;
+        }
+
+        #salida {
+            margin-top: 100px;
+            text-align: center;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 350px;
+            border: 4px dashed #333;
+            color: #fff;
+        }
+
+        #salida>span {
+            color: #066;
+            font-weight: bold;
+            padding-right: 100px;
+
+        }
+
+        #salida>span.correcto {
+            color: #066;
+        }
+
+        #salida>span.incorrecto {
+            color: #f00;
+        }
+
+        #salida>table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #salida>table tr {}
+
+        #salida>table td:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background-color: #099;
+            color: #fff;
+            font-size: 100px;
+            border: 10px solid #fff;
+            overflow: hidden;
+        }
+
+        #salida>table td:nth-child(1)>div {
+            position: relative;
+            top: -18px;
+            right: -15px;
+            width: 100px;
+            height: 100px;
+            transform: rotate(45deg);
+        }
+
+        #salida>table td:nth-child(2) {
+            font-size: 50px;
+            width: 100px;
+            border: 10px solid #fff;
+            background-color: #999;
+            color: #fff;
+        }
+
+        #salida>table td:nth-child(3) {
+            width: 400px;
+            text-align: right;
+            font-size: 80px;
+        }
+    </style>
 </head>
+
 <body>
-    
-	<div id="relog"></div>
-	<div id="control">
+
+    <div id="relog"></div>
+    <div id="control">
         <button onclick="ficha(0)">Entrada</button>
         <button onclick="ficha(1)">Salida</button>
-        
+
     </div>
     <div id="salida"></div>
 </body>
+
 </html>

@@ -1,9 +1,6 @@
-//Heroku
-$ heroku login
+//actualizar un elemento horarios.db
 
-$ git add .
-$ git commit -am "Nueva subida"
-$ git push heroku master 
+http://localhost:3000/crud/?SQL=UPDATE Configuracion SET Texto='Asuntos propios y trienios' WHERE ID=204;
 
 // github
 
