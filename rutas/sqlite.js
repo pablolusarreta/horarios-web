@@ -133,7 +133,8 @@ router.get('/editor', (req, res) => {
                         Mentradas.push([o.ID, o.Tipo])
                     })
                     //  NOTAS
-                    sql = `SELECT ID,Texto FROM Notas WHERE Grupo=${req.query.grupo} AND ID=${req.query.ini - 86400}`
+                    sql = `SELECT ID,Texto FROM Notas WHERE Grupo=${req.query.grupo} AND ID=${req.query.ini}`
+                    console.log(sql)
                     db.all(sql, [], (err, f) => {
                         f.forEach(o => {
                             Mnotas.push([o.ID, autf8(o.Texto)])

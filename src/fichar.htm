@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fichador</title>
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="favicon.ico">
     <script type="text/javascript">
         const cargaContenido = (url, funcion) => {
             fetch(url)
@@ -20,19 +20,21 @@
         function relog() {
             m = new Date();
             h = [m.getHours(), m.getMinutes(), m.getSeconds()];
-            document.getElementById('relog').innerHTML = ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]) + ' <sup>' + ((h[2] < 10) ? '0' + h[2] : h[2]) + '</sup><span><span>' + dia_tx[m.getDay()] + ' ' + m.getDate() + '</span><br>' + mes_tx[m.getMonth()] + ' de ' + m.getFullYear() + '</span>';
+            document.getElementById('relog').innerHTML = ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + 
+            h[1] : h[1]) + ' <sup>' + ((h[2] < 10) ? '0' + h[2] : h[2]) + '</sup><span><span>' + dia_tx[m.getDay()] + ' ' +
+            m.getDate() + '</span><br>' + mes_tx[m.getMonth()] + ' de ' + m.getFullYear() + '</span>';
         }
         function ficha(t) {
             tipo = t;
             marca = new Date();
             ahora = marca.getTime();
-            cargaContenido('/editor?accion=1&grupo=0&id=' + (Math.round(ahora / 1000)) + '&tabla=Entradas&valor=' + (Math.round(ahora / 1000)) + '&tipo=' + tipo + '&app=1', comprueba);
+            cargaContenido('/editor?accion=1&grupo=0&id=' + (Math.round(ahora / 1000)) + '&tabla=Entradas&valor=' +
+            (Math.round(ahora / 1000)) + '&tipo=' + tipo + '&app=1', comprueba);
         }
         function comprueba(d) {
-            document.getElementById('salida').innerHTML = '<span class=\"correcto\">Nuevo Marcaje </span> ' + tipo_tx[tipo] + ' ' + ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]);
-            setTimeout(function () {
-                location.reload()
-            }, 3000);
+            document.getElementById('salida').innerHTML = '<span class="correcto">Nuevo Marcaje </span> ' +
+            tipo_tx[tipo] + ' ' + ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]);
+            setTimeout(function () { location.reload() }, 3000);
         }
         function iniciar(d) {
             console.log(d)
@@ -40,33 +42,32 @@
             var s = '<table>';
             for (var i in datos.Marcas) {
                 var tmp = new Date(datos.Marcas[i][0] * 1000);
-                s += '<tr><td onclick="elimina(' + datos.Marcas[i][0] + ',\'' + tmp.toLocaleTimeString() + '\')"><div>+</div></td><td>' + tipo_tx[datos.Marcas[i][1]] + '</td><td>' + tmp.toLocaleTimeString() + '</td></tr>';
+                s += `<tr><td onclick="elimina(${datos.Marcas[i][0]},'${tmp.toLocaleTimeString()}')"><div>+</div></td>
+                    <td>${tipo_tx[datos.Marcas[i][1]]}</td><td>${tmp.toLocaleTimeString()}</td></tr>`;
             }
             s += '</table>';
             document.getElementById('salida').innerHTML = s;
             s = (datos.Notas) ? datos.Notas[0][1] : ''
             document.getElementById('dia').innerHTML = `<div>${s}</div>`
         }
-        function reinicia() {           
-                document.getElementById('salida').innerHTML = "<span class=\"correcto\">Eliminando marcaje</span> ";
-                setTimeout(function () {
-                   location.reload()
-                }, 3000);
+        function reinicia() {
+            document.getElementById('salida').innerHTML = "<span class='correcto'>Eliminando marcaje</span>";
+            setTimeout(function () { location.reload() }, 3000);
         }
 
         function elimina(n, t) {
             if (confirm("ELIMINAR marcaje ?\n" + t)) {
-                cargaContenido('/editor?accion=2&grupo=0&id=' + n + '&app=1', reinicia);
+                cargaContenido(`/editor?accion=2&grupo=0&id=${n}`, reinicia);
             }
         }
         window.onload = () => {
             relog();
             setInterval(relog, 1000);
-            marca.setHours(0); marca.setSeconds(0); marca.setMilliseconds(0);
+            marca.setHours(0, 0, 0, 0);
             ini = marca.getTime() / 1000;
             marca.setHours(24);
             fin = marca.getTime() / 1000;
-            cargaContenido('/editor?&grupo=0&accion=7&ini=' + ini + '&fin=' + fin + '&app=' + m.getTime(), iniciar);
+            cargaContenido(`/editor?&grupo=0&accion=7&ini=${ini}&fin=${fin}`, iniciar);
         }
 
     </script>
