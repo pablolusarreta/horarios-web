@@ -12,11 +12,15 @@
                 .then(data => funcion(data));
         }
         ///////////////////////////////////////////////////////////////////
-        var m, h, tipo, ahora, ini, fin;
-        var marca = new Date();
-        var tipo_tx = ['Entrada', 'Salida'];
-        var dia_tx = ['Domingo', 'Lunes', 'Martes', 'Miercole', 'Jueves', 'Viernes', 'Sabado'];
-        var mes_tx = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        var m, h, tipo, ahora, ini, fin
+        var marca = new Date()
+        const tipo_tx = ['Entrada', 'Salida']
+        const dia_tx = ['Domingo', 'Lunes', 'Martes', 'Miercole', 'Jueves', 'Viernes', 'Sabado']
+        const mes_tx = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        const formato_RD = m =>{
+            let t = [m.getHours(), m.getMinutes(), m.getSeconds()];
+            return ((t[0] < 10) ? '0' + t[0] : t[0]) + ' : ' + ((t[1] < 10) ? '0' + t[1] : t[1])+ ' : '+ ((t[2] < 10) ? '0' + t[2] : t[2])
+        }
         function relog() {
             m = new Date();
             h = [m.getHours(), m.getMinutes(), m.getSeconds()];
@@ -43,7 +47,7 @@
             for (var i in datos.Marcas) {
                 var tmp = new Date(datos.Marcas[i][0] * 1000);
                 s += `<tr><td onclick="elimina(${datos.Marcas[i][0]},'${tmp.toLocaleTimeString()}')"><div>+</div></td>
-                    <td>${tipo_tx[datos.Marcas[i][1]]}</td><td>${tmp.toLocaleTimeString()}</td></tr>`;
+                    <td>${tipo_tx[datos.Marcas[i][1]]}</td><td>${formato_RD(tmp)}</td></tr>`;
             }
             s += '</table>';
             document.getElementById('salida').innerHTML = s;
