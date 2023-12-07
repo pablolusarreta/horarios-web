@@ -17,6 +17,7 @@
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.11",
     "nodemon": "^1.19.4"
   }
 }

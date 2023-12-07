@@ -1,0 +1,7 @@
+node_modules
+.infoweb
+.vscode
+start.bat
+.dockerignore
+Dockerfile
+fly.toml
