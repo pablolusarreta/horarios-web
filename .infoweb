@@ -7,3 +7,9 @@ http://localhost:3000/crud/?SQL=UPDATE Configuracion SET Texto='Asuntos propios 
 git remote add origin https://github.com/pablolusarreta/horarios-web.git
 git branch -M main
 git push -u origin main
+
+
+{
+    "usuario":"pablo",
+    "contrasena":"pabl8173"
+}

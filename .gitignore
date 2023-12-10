@@ -2,3 +2,4 @@ node_modules
 .vscode
 info-git.txt
 start.bat
+package-lock.json
