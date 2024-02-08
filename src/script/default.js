@@ -499,7 +499,8 @@ function cargaGrupo(n, accion, funcion) {
 		rango = '&' + rango_ano();
 	}
 	actual.grupo = n;
-	if (localStorage.getItem('horarios-web.herokuapp.com') == "{usuario:'pablo', contrasena:'pabl8173'}") {
+	const accesos = JSON.parse(localStorage.getItem('horarios-web-2024'));
+	if (accesos) {
 		cargando(1);
 		cargaContenido('/editor?accion=' + accion + '&grupo=' + actual.grupo + rango, 'GET', funcion);
 	} else {
@@ -513,9 +514,8 @@ var comprovar = ob => {
 		if (peticion_http.readyState == READY_STATE_COMPLETE) {
 			if (peticion_http.status == 200) {
 				let entrada = eval("(" + peticion_http.responseText + ")")
-
 				if (entrada.autentico) {
-					localStorage.setItem('horarios-web.herokuapp.com', "{usuario:'pablo', contrasena:'pabl8173'}")
+					localStorage.setItem('horarios-web-2024', new Date().getTime())
 					document.getElementById('autentificacion').style.display = 'none'
 				} else {
 					alert('¡ Autentificación fallida !')
