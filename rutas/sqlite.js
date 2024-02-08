@@ -158,7 +158,7 @@ router.get('/editor', (req, res) => {
 })
 ////////////////////////////////////////////////////////
 router.get('/autentificacion', (req, res) => {
-    if (req.query.usuario == 'pablo' & req.query.contrasena == 'pabl8173') {
+    if (req.query.usuario == 'plusarreta' & req.query.contrasena == 'pabl8173') {
         res.json({ autentico: true })
     } else {
         res.json({ autentico: false })
