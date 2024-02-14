@@ -2,6 +2,5 @@
 node_modules
 start.bat
 package-lock.json
-.vscode
 .infoweb
 db/horarios.db
