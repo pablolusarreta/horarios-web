@@ -19,12 +19,14 @@
     <link rel="stylesheet" type="text/css" href="/css/default.print.css" media="print" />
     <link rel="shortcut icon" href="favicon.ico" />
     <script type="text/javascript">
-        window.onload = function () {
-            inicia();
-            setTimeout(function () {
-                cargaGrupo(0, 0, mes);
-                document.getElementById('tapon').style.backgroundImage = 'none';
-            }, 2000);
+        window.onload = () => {
+            cargando(1);
+            contenido('/editor', menu)
+            informe_mes = () => { cargaGrupo(0, 0, mes) }
+            informe_estilo = () => { 
+                document.querySelector('#graficos').innerHTML = 'Resumen horarios trabajados:  <b>Pablo Lusarreta</b>'
+              
+            }
 
         }
     </script>

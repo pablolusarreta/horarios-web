@@ -1,6 +1,6 @@
 db\horarios.db
 node_modules
-.vscode
-info-git.txt
 start.bat
 package-lock.json
+.vscode
+.infoweb

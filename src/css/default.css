@@ -27,14 +27,16 @@ table {
 	max-width: 1200px;
 	border-collapse: collapse;
 	background-color: transparent;
+	border-radius: 10px;
 }
 
 table.tabla_anio {
 	border: 6px solid #999;
+	min-width: 700px;
 }
 
 table.tabla_anio>tbody {
-	box-shadow: 4px 4px 8px#000;
+	border-radius: 10px;
 }
 
 table>caption {
@@ -189,15 +191,17 @@ table.horario>tbody>tr>td>img:hover {
 	position: fixed;
 	top: 46px;
 	right: 0;
+	padding-right: 20px;
 }
 
-#selectores>select {
+#selectores>select,  #selectores>button{
 	margin-right: 40px;
 	margin-top: 10px;
 	padding: 0 20px;
 	background-color: #999;
 	color: #fff;
 	font-size: 16px;
+	border-radius: 10px;
 }
 
 #navegador {
@@ -388,11 +392,10 @@ table.anual>tbody>tr>td>span>span {
 
 #autentificacion>div {
 	display: grid;
-	border: 4px solid #ccc;
-	border-radius: 10px 10px;
 	height: 200px;
-	width: 300px;
-	background-color: #fff;
+	width: 30%;
+	background-color: white;
+	color: #666;
 	justify-content: space-evenly;
 	align-content: center;
 }
@@ -401,20 +404,22 @@ table.anual>tbody>tr>td>span>span {
 	padding-top: 12px;
 }
 
-#autentificacion>div>input {
-	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
-}
 
 #autentificacion>div>input[type=text], #autentificacion>div>input[type=password] {
-	width: 150px;
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0px 10px;
+	width: 250px;
 	height: 26px;
 	border: none;
-	border-bottom: 2px solid #ccc;
-	font-size: 18px;
+	background-color: #eee;
+	color: #333;
+
 }
 
 #autentificacion>div>input:nth-child(5) {
 	margin-top: 30px;
+	margin-left: 142px;
 	height: 26px;
 }
 
@@ -433,4 +438,10 @@ table.anual>tbody>tr>td>span>span {
 	text-decoration: none;
 	background-color: #555;
 	color: #fff;
+
+}
+
+#graficos>a:nth-child(2) {
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 10px;
 }

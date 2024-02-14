@@ -6,7 +6,7 @@
     <title>Fichador</title>
     <link rel="shortcut icon" href="favicon.ico">
     <script type="text/javascript">
-        const cargaContenido = (url, funcion) => {
+        const contenido = (url, funcion) => {
             fetch(url)
                 .then(response => response.json())
                 .then(data => funcion(data));
@@ -32,7 +32,7 @@
             tipo = t;
             marca = new Date();
             ahora = marca.getTime();
-            cargaContenido('/editor?accion=1&grupo=0&id=' + (Math.round(ahora / 1000)) + '&tabla=Entradas&valor=' +
+            contenido('/editor?accion=1&grupo=0&id=' + (Math.round(ahora / 1000)) + '&tabla=Entradas&valor=' +
             (Math.round(ahora / 1000)) + '&tipo=' + tipo + '&app=1', comprueba);
         }
         function comprueba(d) {
@@ -61,7 +61,7 @@
 
         function elimina(n, t) {
             if (confirm("ELIMINAR marcaje ?\n" + t)) {
-                cargaContenido(`/editor?accion=2&grupo=0&id=${n}`, reinicia);
+                contenido(`/editor?accion=2&grupo=0&id=${n}`, reinicia);
             }
         }
         window.onload = () => {
@@ -71,7 +71,7 @@
             ini = marca.getTime() / 1000;
             marca.setHours(24);
             fin = marca.getTime() / 1000;
-            cargaContenido(`/editor?&grupo=0&accion=7&ini=${ini}&fin=${fin}`, iniciar);
+            contenido(`/editor?&grupo=0&accion=7&ini=${ini}&fin=${fin}`, iniciar);
         }
 
     </script>
