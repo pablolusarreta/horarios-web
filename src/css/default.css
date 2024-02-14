@@ -189,12 +189,14 @@ table.horario>tbody>tr>td>img:hover {
 
 #selectores {
 	position: fixed;
-	top: 46px;
+	margin: auto;
+	min-width: 600px;
+	top: 56px;
 	right: 0;
 	padding-right: 20px;
 }
 
-#selectores>select,  #selectores>button{
+#selectores>select, #selectores>button {
 	margin-right: 40px;
 	margin-top: 10px;
 	padding: 0 20px;
@@ -206,6 +208,7 @@ table.horario>tbody>tr>td>img:hover {
 
 #navegador {
 	position: fixed;
+	min-width: 600px;
 	top: 22px;
 	left: 20px;
 	color: #ccc;
@@ -378,9 +381,6 @@ table.anual>tbody>tr>td>span>span {
 
 #cargando {
 	background-color: #fff;
-	background-image: url('../img/trabajando.gif');
-	background-repeat: no-repeat;
-	background-position: center;
 	opacity: 0.5;
 }
 
@@ -425,6 +425,7 @@ table.anual>tbody>tr>td>span>span {
 
 #graficos {
 	position: absolute;
+	min-width: 600px;
 }
 
 #graficos>a {
@@ -432,16 +433,10 @@ table.anual>tbody>tr>td>span>span {
 	position: relative;
 	text-align: center;
 	width: 150px;
-	top: -10px;
-	margin-left: 0;
-	margin-right: 4px;
+	margin-left: 14px;
+	top: 3px;
 	text-decoration: none;
 	background-color: #555;
 	color: #fff;
-
-}
-
-#graficos>a:nth-child(2) {
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 10px;
+	border-radius: 10px;
 }

@@ -50,7 +50,7 @@ const editor_marcajes = () => {
 	var selector = '<div id="navegador"><span onclick="inicia();">Inicio &raquo;</span><span class="activo">Marcajes ' + DATOS.Grupo[actual.grupo][1] + '</span></div>';
 	if (DATOS.Grupo[actual.grupo][1] == 'Sarobe') {
 		selector += '<div id="graficos"> <a href="/graficoshorarios.htm" target="_blank">Horarios jornada-anuales</a>'
-		//selector += '<a href="/graficoshorarios.htm" target="_blank">Horas-anuales</a>'
+		selector += '<a href="/informe.htm" target="_blank">Informe-mes</a>'
 		//selector += '<a href="/graficoshorarios.htm" target="_blank">Fines de semana-anuales</a>'
 		selector += '<a href="/horarios.db" target="_blank">Descargar DB</a></div>'
 	}
@@ -392,7 +392,6 @@ const editadoNorma = datos => {
 	if (datos.error) alert('Error 411')
 	cargaGrupo(actual.grupo, 4, configuracion)
 }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function editaMarca(Obj, tipo) {
 	cargando(1);
