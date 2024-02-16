@@ -42,6 +42,7 @@ table.tabla_anio>tbody {
 table>caption {
 	font-size: 18px;
 	text-align: left;
+	color: #fff;
 }
 
 td, th {
@@ -331,7 +332,9 @@ table.horario>tbody>tr>td>img:hover {
 }
 
 table.anual {
-	width: 970px;
+	width: 1100px;
+	min-width: 1100px;
+	max-width: 1100px;
 	border-color: #999;
 	margin-bottom: 50px;
 }

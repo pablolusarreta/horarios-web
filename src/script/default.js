@@ -466,7 +466,7 @@ const cargaGrupo = (n, accion, funcion) => {
 	}
 	actual.grupo = n;
 	const accesos = JSON.parse(localStorage.getItem('horarios-web-2024'));
-	if (accesos) {
+	if (accesos ||window.location.pathname === '/informe.htm' ) {
 		cargando(1);
 		contenido('/editor?accion=' + accion + '&grupo=' + actual.grupo + rango, funcion);
 	} else {
