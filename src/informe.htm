@@ -25,16 +25,22 @@
             contenido('/editor', menu)
             informe_mes = () => { cargaGrupo(0, 0, mes) }
             informe_estilo = () => {
-                document.querySelector('#graficos').innerHTML = 'Resumen horarios trabajados:  <b>Pablo Lusarreta</b>'
+                document.querySelector('#graficos').innerHTML = ''
+                document.querySelector('#informe').innerHTML = 
+                `<button onclick="navigation.reload()">➜</button>
+                Resumen horarios trabajados:  <b>Pablo Lusarreta</b><br>
+                <a href="/graficoshorarios.htm" target="_blank">Horarios jornada-anuales</a>`
             }
         }
     </script>
 </head>
 
 <body>
+    
     <div id="salida"></div>
     <div id="control"></div>
     <div id="cargando"></div>
+    <div id="informe"></div>
 </body>
 
 </html>
