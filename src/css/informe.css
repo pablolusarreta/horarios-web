@@ -410,3 +410,10 @@ table.tabla_anio>tbody>tr>td>table>tbody>tr>td {
 #control {
 	min-width: 1000px;
 }
+#tapon {
+	position: fixed;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 10px);
+	background-color:transparent;
+}

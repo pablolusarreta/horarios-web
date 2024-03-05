@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    
+
 <!--
 // ***********************************************
 // * Author       : Pablo Lusarreta              *
@@ -26,8 +26,8 @@
             informe_mes = () => { cargaGrupo(0, 0, mes) }
             informe_estilo = () => {
                 document.querySelector('#graficos').innerHTML = ''
-                document.querySelector('#informe').innerHTML = 
-                `<button onclick="navigation.reload()">➜</button>
+                document.querySelector('#informe').innerHTML =
+                    `<button onclick="navigation.reload()">➜</button>
                 Resumen horarios trabajados:  <b>Pablo Lusarreta</b><br>
                 <a href="/graficoshorarios.htm" target="_blank">Horarios jornada-anuales</a>`
             }
@@ -36,11 +36,12 @@
 </head>
 
 <body>
-    
+
     <div id="salida"></div>
     <div id="control"></div>
     <div id="cargando"></div>
     <div id="informe"></div>
+    <div id="tapon"></div>
 </body>
 
 </html>
