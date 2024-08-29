@@ -1,6 +1,6 @@
 body {
 	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
-	background-color: #333;
+	background-color: #666;
 	color: #000;
 	margin: 0px;
 	padding: 0px;
@@ -184,7 +184,7 @@ table.horario>tbody>tr>td>img:hover {
 	width: 100%;
 	height: 80px;
 	font-size: 24px;
-	background-color: #222;
+	background-color: #000;
 	box-shadow: 0px 0px 20px #000;
 }
 
@@ -192,7 +192,7 @@ table.horario>tbody>tr>td>img:hover {
 	position: fixed;
 	margin: auto;
 	min-width: 600px;
-	top: 56px;
+	top: 40px;
 	right: 0;
 	padding-right: 20px;
 }
@@ -204,13 +204,12 @@ table.horario>tbody>tr>td>img:hover {
 	background-color: #999;
 	color: #fff;
 	font-size: 16px;
-	border-radius: 10px;
 }
 
 #navegador {
 	position: fixed;
 	min-width: 600px;
-	top: 22px;
+	top: 10px;
 	left: 20px;
 	color: #ccc;
 	font-size: 19px;
@@ -241,7 +240,7 @@ table.horario>tbody>tr>td>img:hover {
 #salida>div.opcion {
 	margin: 20px auto;
 	padding: 20px;
-	width: 400px;
+	width: 50vw;
 	height: 150px;
 	border: 4px solid #ccc;
 	border-radius: 10px 10px;
@@ -252,7 +251,7 @@ table.horario>tbody>tr>td>img:hover {
 
 #salida>div.opcion>span {
 	display: block;
-	font-size: 18px;
+	font-size: 34px;
 	float: right;
 	text-align: right;
 }
@@ -263,14 +262,19 @@ table.horario>tbody>tr>td>img:hover {
 
 #salida>div.opcion>span>button, #selectores>button, #autentificacion>div>input[type=button], #graficos>a {
 	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 16px;
 	background-color: #999;
 	color: #fff;
 	border: none;
-	width: 130px;
-	padding: 4px 6px;
+	width: 200px;
+	padding: 8px 16px;
 	margin: 0 0 0 10px;
 	transition: background-color 0.5s;
+}
+
+#selectores>select, #selectores>button {
+	padding: 2px 0px;
+	background-color: rgba(0,0, 0, 0.4);
 }
 
 #salida>div.opcion>span>button:hover, #selectores>button:hover, #autentificacion>div>input[type=button]:hover, #graficos>a:hover {
