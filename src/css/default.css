@@ -1,3 +1,7 @@
+@font-face {
+    font-family: tablas;
+    src: url("../fuentes/OpenSans-VariableFont_wdth,wght.ttf");
+}
 body {
 	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
 	background-color: #666;
@@ -131,7 +135,7 @@ tr.ano_anterior {
 */
 
 td {
-	font-family: "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-family: tablas, "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
 	max-width: 200px;
 }
 
@@ -160,7 +164,7 @@ table.horario>tbody>tr>td {
 }
 
 table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
-	font-family: "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-family: tablas, "Cascadia Code", "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	text-align: center;
 	width: 40px;
