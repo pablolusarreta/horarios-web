@@ -1,0 +1,16 @@
+{
+    "name": "Horarios-web Progressive Web App",
+    "short_name": "horarios-web",
+    "description": "Aplicación web progresiva para editar los horarios travajados en la empresa desde 2014.",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#010101"
+}
