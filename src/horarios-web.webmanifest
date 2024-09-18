@@ -4,8 +4,8 @@
     "description": "Aplicación web progresiva para editar los horarios travajados en la empresa desde 2014.",
     "start_url": "./",
     "display": "standalone",
-    "theme_color": "#000",
-    "background_color": "#010101",
+    "theme_color": "#111",
+    "background_color": "#111",
     "icons": [
         {
             "src": "./img/icon257.png",
