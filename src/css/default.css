@@ -1,7 +1,8 @@
 @font-face {
-    font-family: tablas;
-    src: url("../fuentes/OpenSans-VariableFont_wdth,wght.ttf");
+	font-family: tablas;
+	src: url("../fuentes/OpenSans-VariableFont_wdth,wght.ttf");
 }
+
 body {
 	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
 	background-color: #666;
@@ -40,7 +41,12 @@ table.tabla_anio {
 }
 
 table.tabla_anio>tbody {
+	font-weight: 600;
 	border-radius: 10px;
+}
+
+table.tabla_anio td>input {
+	font-weight: 600;
 }
 
 table>caption {
@@ -278,7 +284,7 @@ table.horario>tbody>tr>td>img:hover {
 
 #selectores>select, #selectores>button {
 	padding: 2px 0px;
-	background-color: rgba(0,0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 #salida>div.opcion>span>button:hover, #selectores>button:hover, #autentificacion>div>input[type=button]:hover, #graficos>a:hover {
