@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Fichador</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="manifest" href="horarios-web.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <script type="text/javascript">
         const contenido = (url, funcion) => {
             fetch(url)
@@ -17,27 +18,27 @@
         const tipo_tx = ['Entrada', 'Salida']
         const dia_tx = ['Domingo', 'Lunes', 'Martes', 'Miercole', 'Jueves', 'Viernes', 'Sabado']
         const mes_tx = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-        const formato_RD = m =>{
+        const formato_RD = m => {
             let t = [m.getHours(), m.getMinutes(), m.getSeconds()];
-            return ((t[0] < 10) ? '0' + t[0] : t[0]) + ' : ' + ((t[1] < 10) ? '0' + t[1] : t[1])+ ' : '+ ((t[2] < 10) ? '0' + t[2] : t[2])
+            return ((t[0] < 10) ? '0' + t[0] : t[0]) + ' : ' + ((t[1] < 10) ? '0' + t[1] : t[1]) + ' : ' + ((t[2] < 10) ? '0' + t[2] : t[2])
         }
         function relog() {
             m = new Date();
             h = [m.getHours(), m.getMinutes(), m.getSeconds()];
-            document.getElementById('relog').innerHTML = ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + 
-            h[1] : h[1]) + ' <sup>' + ((h[2] < 10) ? '0' + h[2] : h[2]) + '</sup><span><span>' + dia_tx[m.getDay()] + ' ' +
-            m.getDate() + '</span><br>' + mes_tx[m.getMonth()] + ' de ' + m.getFullYear() + '</span>';
+            document.getElementById('relog').innerHTML = ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' +
+                h[1] : h[1]) + ' <sup>' + ((h[2] < 10) ? '0' + h[2] : h[2]) + '</sup><span><span>' + dia_tx[m.getDay()] + ' ' +
+                m.getDate() + '</span><br>' + mes_tx[m.getMonth()] + ' de ' + m.getFullYear() + '</span>';
         }
         function ficha(t) {
             tipo = t;
             marca = new Date();
             ahora = marca.getTime();
             contenido('/editor?accion=1&grupo=0&id=' + (Math.round(ahora / 1000)) + '&tabla=Entradas&valor=' +
-            (Math.round(ahora / 1000)) + '&tipo=' + tipo + '&app=1', comprueba);
+                (Math.round(ahora / 1000)) + '&tipo=' + tipo + '&app=1', comprueba);
         }
         function comprueba(d) {
             document.getElementById('salida').innerHTML = '<span class="correcto">Nuevo Marcaje </span> ' +
-            tipo_tx[tipo] + ' ' + ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]);
+                tipo_tx[tipo] + ' ' + ((h[0] < 10) ? '0' + h[0] : h[0]) + ' : ' + ((h[1] < 10) ? '0' + h[1] : h[1]);
             setTimeout(function () { location.reload() }, 3000);
         }
         function iniciar(d) {
@@ -143,7 +144,7 @@
             color: #ccc;
             min-width: 300px;
             height: 120px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         #relog>span {
