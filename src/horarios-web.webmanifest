@@ -1,7 +1,7 @@
 {
     "name": "Horarios-web Progressive Web App",
     "short_name": "horarios-web",
-    "description": "Aplicación web progresiva para editar los horarios travajados en la empresa desde 2014.",
+    "description": "Aplicación web progresiva para editar los horarios trabajados y o tele fichar.",
     "start_url": "./",
     "display": "standalone",
     "orientation": "portrait",
