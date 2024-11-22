@@ -1,9 +1,10 @@
 {
-    "name": "Horarios-web PWA",
+    "name": "Horarios-web-fichaje PWA",
     "short_name": "horarios-web",
-    "description": "Aplicación web progresiva para editar los horarios trabajados y o tele fichar.",
-    "start_url": "./",
+    "description": "Aplicación web progresiva para tele fichar.",
+    "start_url": "./fichar.htm",
     "display": "standalone",
+    "orientation": "portrait",
     "theme_color": "#111",
     "background_color": "#111",
     "icons": [
@@ -32,5 +33,5 @@
             "sizes": "16x16",
             "type": "image/png"
         }
-    ] 
+    ]
 }
