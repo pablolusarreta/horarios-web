@@ -1,6 +1,6 @@
 {
     "name": "Horarios-web-fichaje PWA",
-    "short_name": "horarios-web",
+    "short_name": "horarios-web-fichaje",
     "description": "Aplicación web progresiva para tele fichar.",
     "start_url": "./fichar.htm",
     "display": "standalone",
