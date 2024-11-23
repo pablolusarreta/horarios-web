@@ -33,7 +33,7 @@ table {
 	border-collapse: collapse;
 	background-color: transparent;
 	border-radius: 10px;
-    color: #fff;
+	color: #fff;
 }
 
 table.tabla_anio {
@@ -125,14 +125,16 @@ td.nota {
 }
 
 td>select {
-    background-color: transparent;
+	background-color: transparent;
 	font-size: 11px;
 	color: #fff;
 	font-weight: 600;
 }
-td>select>option{
+
+td>select>option {
 	background-color: #666;
 }
+
 td>span.etiqueta {
 	display: none;
 	color: #fff;
@@ -156,12 +158,12 @@ table.horario>tbody>tr>td>input, table>tbody>tr>td>input {
 	border: none;
 	background-color: transparent;
 	cursor: default;
-    color: #fff;
+	color: #fff;
 }
 
 table.horario>tbody>tr>td>img {
 	margin: 0px 4px 0px 6px;
-    filter: brightness(100);
+	filter: brightness(100);
 	opacity: 0.5;
 	transition: opacity 0.5s;
 }
@@ -235,7 +237,7 @@ table.horario>tbody>tr>td>img:hover {
 	height: 150px;
 	border: 1px solid #333;
 	border-radius: 10px 10px;
-	background-color: #111;
+	background-color: #333;
 	box-shadow: 4px 4px 40px #333;
 	overflow: hidden;
 }
@@ -267,11 +269,13 @@ table.horario>tbody>tr>td>img:hover {
 	padding: 2px 0px;
 	background-color: rgba(0, 0, 0, 0.4);
 }
+
 #selectores>button {
 	border-radius: 20px;
 }
+
 #salida>div.opcion>span>button:hover, #selectores>button:hover, #autentificacion>div>input[type=button]:hover, #graficos>a:hover {
-	background-color: #333;
+	background-color: #666;
 }
 
 #salida>div.nota {
@@ -289,6 +293,7 @@ table.horario>tbody>tr>td>img:hover {
 	max-width: 600px;
 	border: 1px solid #333;
 	box-shadow: 2px 2px 20px #333;
+	
 	border-radius: 10px;
 }
 
@@ -298,6 +303,7 @@ table.horario>tbody>tr>td>img:hover {
 }
 
 #normas>tbody>tr>td {
+	background-color: #333;
 	padding: 10px 20px;
 }
 
@@ -305,7 +311,7 @@ table.horario>tbody>tr>td>img:hover {
 	width: 70px;
 	height: 18px;
 	text-align: right;
-	border: 1px solid #ccc;
+	border: 1px solid #666;
 }
 
 #normas>tbody>tr>td>button {
@@ -332,7 +338,6 @@ table.anual {
 	width: 1100px;
 	min-width: 1100px;
 	max-width: 1100px;
-	border-color: #999;
 	margin-bottom: 50px;
 }
 
@@ -342,18 +347,21 @@ table.anual>caption {
 }
 
 table.anual>tbody>tr>th {
-	background-color: transparent;
-	color: #000;
+	background-color: #444;
+	color: #fff;
 	font-weight: bolder;
 	text-align: left;
 	min-width: 40px;
+	border: 1px solid #444;
 }
 
 table.anual>tbody>tr>td {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border: 2px solid #999;
+	border: 1px solid #444;
+	background-color: #333;
 }
+
 table.anual>tbody>tr>td:nth-child(14) {
 	font-weight: 700;
 }

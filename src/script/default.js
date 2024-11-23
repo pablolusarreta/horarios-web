@@ -43,6 +43,7 @@ const menu = datos => {
 	cargando(0)
 	//informe.htm
 	if (informe_mes) { informe_mes() }
+	//cargaGrupo(0,0,mes); 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const editor_marcajes = () => {
@@ -299,7 +300,7 @@ const ano = datos => {
 	navegador += '<span onclick="cargaGrupo(' + DATOS.Grupo[actual.grupo][0] + ',0,mes);">Marcajes ' + DATOS.Grupo[actual.grupo][1] + '  &raquo;</span>';
 	navegador += '<span class="activo">Resumen Anual</span></div>';
 	document.getElementById('control').innerHTML = navegador;
-	tmp = '<table class="anual" border="1"><caption>Horas trabajadas ' + actual.fecha[0] + '</caption><tr style="border:2px solid #999;background-color:#999;"><th>Tipo horas</th>';
+	tmp = '<table class="anual" border="1"><caption>Horas trabajadas ' + actual.fecha[0] + '</caption><tr><th>Tipo horas</th>';
 	for (var i in MES) {
 		times = new Date(actual.fecha[0], i, 1, 0, 0, 0, 0);
 		inimes[i] = times.getTime() / 1000;
@@ -340,7 +341,7 @@ const ano = datos => {
 		}
 	}
 	tmp += '</table><table class="anual" border="1"><caption>Dias no trabajados ' + actual.fecha[0] + '</caption>';
-	tmp += '<tr style="border:2px solid #999;background-color:#999;"><th style="widht:80%">Justificación</th><th style="width:10%">Teórico</th><th style="width:10%">Nº de días</th></tr>';
+	tmp += '<tr><th style="widht:80%">Justificación</th><th style="width:10%">Teórico</th><th style="width:10%">Nº de días</th></tr>';
 	for (var i in RES) {
 		tmp += '<tr><td>' + RES[i][0] + '</td><td>' + ((RES[i][1] > 0) ? RES[i][1] : '') + '</td><td style="text-align:right;">' + RES[i][2] + '</td></tr>';
 	}
@@ -495,8 +496,8 @@ const elimina = ob => {
 	}
 }
 function inicia() {
-	document.getElementById('control').innerHTML = '<div id="navegador"><span class="activo">Inicio</span></div>';
-	cargando(1);
+	document.getElementById('control').innerHTML = '<div id="navegador"><span class="activo">Inicio</span></div>'
+	cargando(1)
 	contenido('/editor', menu)
 }
 function cargando(n) {
@@ -521,7 +522,7 @@ function formatomHM(hd) {
 	var h = Math.floor(hd / 3600000);
 	var m = Math.floor(60 * ((hd / 3600000) - h));
 	if (hd < 0) {
-		return '<span style="color:#900;">' + h + ':' + ((m < 10) ? '0' + m : m) + '</span>';
+		return '<span style="color:#f00;">' + h + ':' + ((m < 10) ? '0' + m : m) + '</span>';
 	} else {
 		return '<span>' + h + ':' + ((m < 10) ? '0' + m : m) + '</span>';
 	}
