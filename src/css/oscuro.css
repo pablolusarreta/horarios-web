@@ -49,7 +49,10 @@ table.tabla_anio>tbody {
 table.tabla_anio td>input {
 	font-weight: 600;
 }
-
+table.tabla_anio td>span {
+	font-weight: 100;
+	padding-left: 10px;
+}
 table>caption {
 	font-size: 18px;
 	text-align: left;
@@ -399,35 +402,40 @@ table.anual>tbody>tr>td>span>span {
 
 #autentificacion>div {
 	display: grid;
-	height: 200px;
+	height: 300px;
 	width: 30%;
-	background-color: white;
-	color: #666;
+	background-color: #222;
+	border-radius: 10px;
+	color: #fff;
 	justify-content: space-evenly;
 	align-content: center;
 }
 
 #autentificacion>div>p {
-	padding-top: 12px;
+	font-size: 18px;
+	padding: 12px 0px;
 }
 
 
-#autentificacion>div>input[type=text], #autentificacion>div>input[type=password] {
+#autentificacion>div>input[type=text], #autentificacion>div>input[type=password] ,#autentificacion>div>button{
 	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	padding: 0px 10px;
-	width: 250px;
-	height: 26px;
+	font-size: 18px;
+	padding: 0px 20px ;
+	width: 400px;
+	height: 32px;
 	border: none;
-	background-color: #eee;
-	color: #333;
+	background-color: #333;
+	color: #fff;
+	margin-bottom: 20px;
 
 }
 
-#autentificacion>div>input:nth-child(5) {
+#autentificacion>div>button {
 	margin-top: 30px;
-	margin-left: 142px;
-	height: 26px;
+	margin-left:342px;
+	width: 100px;
+	height: 45px;
+	padding: 10px;
 }
 
 #graficos {
