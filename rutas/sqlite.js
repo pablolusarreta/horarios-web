@@ -7,7 +7,7 @@ const urldb = './db/'
 let condicion, Mconfig, Mentradas, Mnotas, Mdias, Mmeses, sql
 const autf8 = s => { return s.replace('Ã¡', 'á').replace('Ã³', 'ó').replace('Ã±', 'ñ') }
 
-
+////////////////////////////////////////////////////////
 router.get('/editor', (req, res) => {
     //ABRIR DB
     let db = new sqlite3.Database(urldb + 'horarios.db', (err) => { if (err) { console.error(err.message) } })
@@ -76,7 +76,6 @@ router.get('/editor', (req, res) => {
                         }
                         break;
                 }
-
                 db.run(sql, (err) => { if (err) { console.log(err) } res.json({ error: false }); console.log(sql) })
                 break
             case '2':
@@ -157,6 +156,9 @@ router.get('/editor', (req, res) => {
     db.close((err) => { if (err) { console.error(err.message) } })
 })
 ////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 router.get('/autentificacion', (req, res) => {
     if (req.query.usuario == 'plusarreta' & req.query.contrasena == 'pabl8173') {
         res.json({ autentico: true })
@@ -164,6 +166,7 @@ router.get('/autentificacion', (req, res) => {
         res.json({ autentico: false })
     }
 })
+////////////////////////////////////////////////////////
 router.get('/horarios.db', (req, res) => {
     res.sendFile('horarios.db', { root: path.join(__dirname, '../db') })
 })

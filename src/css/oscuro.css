@@ -49,10 +49,12 @@ table.tabla_anio>tbody {
 table.tabla_anio td>input {
 	font-weight: 600;
 }
+
 table.tabla_anio td>span {
 	font-weight: 100;
 	padding-left: 10px;
 }
+
 table>caption {
 	font-size: 18px;
 	text-align: left;
@@ -81,6 +83,7 @@ th {
 	color: #fff;
 }
 
+/****************************************************/
 /*TD*/
 
 .laboral {
@@ -144,6 +147,7 @@ td>span.etiqueta {
 	font-weight: 600;
 }
 
+/****************************************************/
 table.horario {
 	border-width: 0px;
 }
@@ -175,168 +179,7 @@ table.horario>tbody>tr>td>img:hover {
 	opacity: 1;
 }
 
-#control {
-	position: fixed;
-	width: 100%;
-	height: 80px;
-	font-size: 24px;
-	background-color: #000;
-	border-bottom: 1px solid #666;
-}
-
-#selectores {
-	position: fixed;
-	margin: auto;
-	min-width: 600px;
-	top: 40px;
-	right: 0;
-	padding-right: 20px;
-}
-
-#selectores>select, #selectores>button {
-	margin-right: 40px;
-	margin-top: 10px;
-	padding: 0 20px;
-	background-color: #999;
-	color: #fff;
-	font-size: 16px;
-}
-
-#navegador {
-	position: fixed;
-	min-width: 600px;
-	top: 10px;
-	left: 20px;
-	color: #ccc;
-	font-size: 19px;
-}
-
-#navegador>span {
-	display: inline-block;
-	position: relative;
-	font-weight: 600;
-	background-color: transparent;
-	color: #ccc;
-	margin-top: 15px;
-	margin-right: 4px;
-	padding: 0 10px 0px 10px;
-	transition: color 0.5s;
-}
-
-#navegador>span:hover, #navegador>span.activo {
-	color: #fff;
-}
-
-#salida {
-	position: absolute;
-	top: 100px;
-	width: 100%;
-}
-
-#salida>div.opcion {
-	margin: 20px auto;
-	padding: 20px;
-	width: 50vw;
-	height: 150px;
-	border: 1px solid #333;
-	border-radius: 10px 10px;
-	background-color: #333;
-	box-shadow: 4px 4px 40px #333;
-	overflow: hidden;
-}
-
-#salida>div.opcion>span {
-	display: block;
-	font-size: 34px;
-	float: right;
-	text-align: right;
-}
-
-#salida>div.opcion>img {
-	position: relative;
-}
-
-#salida>div.opcion>span>button, #selectores>button, #autentificacion>div>input[type=button], #graficos>a {
-	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	background-color: #999;
-	color: #fff;
-	border: none;
-	width: 200px;
-	padding: 8px 16px;
-	margin: 0 0 0 10px;
-	transition: background-color 0.5s;
-}
-
-#selectores>select, #selectores>button {
-	padding: 2px 0px;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-
-#selectores>button {
-	border-radius: 20px;
-}
-
-#salida>div.opcion>span>button:hover, #selectores>button:hover, #autentificacion>div>input[type=button]:hover, #graficos>a:hover {
-	background-color: #666;
-}
-
-#salida>div.nota {
-	width: 90%;
-	max-width: 1200px;
-	text-align: left;
-	font-size: 11px;
-	color: #666;
-	margin: auto;
-	margin-bottom: 100px;
-}
-
-#normas {
-	margin: 0 auto;
-	max-width: 600px;
-	border: 1px solid #333;
-	box-shadow: 2px 2px 20px #333;
-	
-	border-radius: 10px;
-}
-
-#normas>caption {
-	color: #fff;
-	margin-bottom: 20px;
-}
-
-#normas>tbody>tr>td {
-	background-color: #333;
-	padding: 10px 20px;
-}
-
-#normas>tbody>tr>td>input {
-	width: 70px;
-	height: 18px;
-	text-align: right;
-	border: 1px solid #666;
-}
-
-#normas>tbody>tr>td>button {
-	position: relative;
-	top: 4px;
-	margin-left: 20px;
-	width: 19px;
-	height: 19px;
-	border: none;
-	border-radius: 9.5px;
-	background-color: #ccc;
-	transition: background-color 0.4s;
-}
-
-#normas>tbody>tr>td>button:hover {
-	background-color: #f00
-}
-
-#total_mes>td>span {
-	padding: 0px 20px;
-}
-
+/****************************************************/
 table.anual {
 	width: 1100px;
 	min-width: 1100px;
@@ -382,6 +225,174 @@ table.anual>tbody>tr>td>span>span {
 	font-size: 10px;
 }
 
+/*********************************************************************************************/
+#control {
+	position: fixed;
+	width: 100%;
+	height: 80px;
+	font-size: 24px;
+	background-color: #000;
+	border-bottom: 1px solid #666;
+}
+
+
+/****************************************************/
+#navegador {
+	position: fixed;
+	min-width: 600px;
+	top: 10px;
+	left: 20px;
+	color: #ccc;
+	font-size: 19px;
+}
+
+#navegador>span {
+	display: inline-block;
+	position: relative;
+	font-weight: 600;
+	background-color: transparent;
+	color: #ccc;
+	margin-top: 15px;
+	margin-right: 4px;
+	padding: 0 10px 0px 10px;
+	transition: color 0.5s;
+}
+
+#navegador>span:hover, #navegador>span.activo {
+	color: #fff;
+}
+
+/****************************************************/
+#salida {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+}
+
+#salida>div.opcion {
+	margin: 20px auto;
+	padding: 20px;
+	width: 50vw;
+	height: 150px;
+	border: 1px solid #161616;
+	border-radius: 10px 10px;
+	background-color: #333;
+	overflow: hidden;
+}
+
+#salida>div.opcion>span {
+	display: block;
+	font-size: 34px;
+	float: right;
+	text-align: right;
+}
+
+#salida>div.opcion>img {
+	position: relative;
+}
+
+#salida>div.opcion>span>button, #selectores>button, #autentificacion>div>input[type=button], #graficos>a {
+	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	background-color: #999;
+	color: #fff;
+	border: none;
+	width: 200px;
+	padding: 8px 16px;
+	margin: 0 0 0 10px;
+	transition: background-color 0.5s;
+}
+
+#salida>div.opcion>span>button:hover, #selectores>button:hover, #autentificacion>div>input[type=button]:hover, #graficos>a:hover {
+	background-color: #666;
+}
+
+#salida>div.nota {
+	width: 90%;
+	max-width: 1200px;
+	text-align: left;
+	font-size: 11px;
+	color: #666;
+	margin: auto;
+	margin-bottom: 100px;
+}
+
+/****************************************************/
+#selectores {
+	position: fixed;
+	margin: auto;
+	min-width: 600px;
+	top: 40px;
+	right: 0;
+	padding-right: 20px;
+}
+
+#selectores>select, #selectores>button {
+	margin-right: 40px;
+	margin-top: 10px;
+	padding: 0 20px;
+	background-color: #333;
+	color: #fff;
+	font-size: 16px;
+}
+
+#selectores>select {
+	padding: 2px 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#selectores>button {
+	height: 24px;
+	border-radius: 20px;
+}
+
+/****************************************************/
+#normas {
+	margin: 0 auto;
+	max-width: 600px;
+	border: 1px solid #333;
+}
+
+#normas>caption {
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+#normas>tbody>tr>td {
+	background-color: #333;
+	padding: 10px 20px;
+}
+
+#normas>tbody>tr>td>input {
+	width: 70px;
+	height: 18px;
+	text-align: right;
+	border: 1px solid #666;
+}
+
+#normas>tbody>tr>td>button {
+	position: relative;
+	top: 4px;
+	margin-left: 20px;
+	width: 19px;
+	height: 19px;
+	border: none;
+	border-radius: 9.5px;
+	background-color: #ccc;
+	transition: background-color 0.4s;
+}
+
+#normas>tbody>tr>td>button:hover {
+	background-color: #f00
+}
+
+/****************************************************/
+#total_mes>td>span {
+	padding: 0px 20px;
+}
+
+/****************************************************/
+
 #cargando, #autentificacion {
 	display: none;
 	position: fixed;
@@ -389,11 +400,13 @@ table.anual>tbody>tr>td>span>span {
 	width: 100%;
 }
 
+/****************************************************/
 #cargando {
 	background-color: #fff;
 	opacity: 0.5;
 }
 
+/****************************************************/
 #autentificacion {
 	justify-content: center;
 	align-items: center;
@@ -417,10 +430,10 @@ table.anual>tbody>tr>td>span>span {
 }
 
 
-#autentificacion>div>input[type=text], #autentificacion>div>input[type=password] ,#autentificacion>div>button{
+#autentificacion>div>input[type=text], #autentificacion>div>input[type=password], #autentificacion>div>button {
 	font-family: "Segoe UI", Tahoma, Geneva, Arial, Helvetica, sans-serif;
 	font-size: 18px;
-	padding: 0px 20px ;
+	padding: 0px 20px;
 	width: 400px;
 	height: 32px;
 	border: none;
@@ -432,12 +445,13 @@ table.anual>tbody>tr>td>span>span {
 
 #autentificacion>div>button {
 	margin-top: 30px;
-	margin-left:342px;
+	margin-left: 342px;
 	width: 100px;
 	height: 45px;
 	padding: 10px;
 }
 
+/****************************************************/
 #graficos {
 	position: absolute;
 	min-width: 600px;
